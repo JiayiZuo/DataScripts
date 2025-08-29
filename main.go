@@ -18,6 +18,17 @@ type MemberUsage struct {
 	Platform   string
 }
 
+var ignoreList = []string{"WuQin", "kayla", "Wen"}
+
+func nameInIgnoreList(name string) bool {
+	for _, ignore := range ignoreList {
+		if name == ignore {
+			return true
+		}
+	}
+	return false
+}
+
 func main() {
 	// 获取当前目录
 	dir, err := os.Getwd()
@@ -71,6 +82,11 @@ func main() {
 		status := row[4]
 		lastUsed := row[5]
 		platform := row[6]
+
+		// 跳过需要忽略的用户
+		if nameInIgnoreList(username) {
+			continue
+		}
 
 		// 如果用户尚未在映射中，则添加
 		if _, exists := userUsage[username]; !exists {
