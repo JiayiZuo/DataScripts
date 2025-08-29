@@ -28,8 +28,8 @@ go.work.sum
 .env
 
 # local file
-.xlsx
-.xls
+*.xlsx
+*.xls
 
 # Editor/IDE
 # .idea/
