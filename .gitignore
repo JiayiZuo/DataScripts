@@ -28,7 +28,7 @@ go.work.sum
 .env
 
 # local file
-.xlxs
+.xlsx
 .xls
 
 # Editor/IDE
